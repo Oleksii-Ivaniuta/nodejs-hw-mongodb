@@ -41,7 +41,7 @@ export const startServer = () => {
     }
     res.json({
       status: 200,
-      message: `Contact successfully found `,
+      message: `Successfully found contact with id ${contactId}! `,
       data: contact,
     });
   });
