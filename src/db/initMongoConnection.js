@@ -17,9 +17,7 @@ export const initMongoDBConnection = async () => {
   try {
     await mongoose.connect(uri, clientOptions);
     await mongoose.connection.db.admin().command({ ping: 1 });
-    console.log(
-      'Pinged your deployment. You successfully connected to MongoDB!',
-    );
+    console.log('Successfully connected to MongoDB!');
   } catch (error) {
     console.log('Failed to connect to Mongo DB', error);
     process.exit();

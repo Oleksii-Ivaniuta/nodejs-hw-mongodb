@@ -1,8 +1,13 @@
-export const getEnvVar = (name) => {
+export const getEnvVar = (name, defaultValue) => {
   const value = process.env[name];
 
-  if (!value) {
+  if (!value && !defaultValue) {
     throw new Error(`Env var with name ${name} is not set`);
   }
-  return value;
+
+  if (value) {
+    return value;
+  }
+
+  return defaultValue;
 };
