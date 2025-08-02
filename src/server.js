@@ -53,12 +53,12 @@ export const startServer = () => {
     });
   });
 
-  // app.use((err, req, res, next) => {
-  //   res.status(500).json({
-  //     status: 500,
-  //     message: 'Something went wrong',
-  //   });
-  // });
+  app.use((err, req, res, next) => {
+    res.status(500).json({
+      status: 500,
+      message: 'Something went wrong',
+    });
+  });
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
