@@ -23,6 +23,8 @@ export const startServer = () => {
     cors(),
   );
 
+  app.use(express.json());
+
   app.use(contactsRouter);
 
   app.use(notFoundHandler);
