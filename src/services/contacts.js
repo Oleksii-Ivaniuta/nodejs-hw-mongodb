@@ -7,11 +7,21 @@ export const getContacts = async ({
   perPage = 10,
   sortOrder = SORT_ORDER.ASC,
   sortBy = 'name',
+  filter = {},
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
 
   const contactsQuery = ContactsCollection.find();
+
+  if (filter.contactType) {
+    contactsQuery.where('contactType').equals(filter.contactType);
+  }
+
+  if (typeof filter.isFavourite === 'boolean') {
+    contactsQuery.where('isFavourite').equals(filter.isFavourite);
+  }
+
   const contactsCount = await ContactsCollection.find()
     .merge(contactsQuery)
     .countDocuments();
@@ -64,24 +74,3 @@ export const updateContact = async (contactId, payload, options = {}) => {
     isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
-
-// /* Решта коду файла */
-
-// export const getAllStudents = async ({ page, perPage }) => {
-//   const limit = perPage;
-//   const skip = (page - 1) * perPage;
-
-//   const studentsQuery = StudentsCollection.find();
-//   const studentsCount = await StudentsCollection.find()
-//     .merge(studentsQuery)
-//     .countDocuments();
-
-//   const students = await studentsQuery.skip(skip).limit(limit).exec();
-
-//   const paginationData = calculatePaginationData(studentsCount, perPage, page);
-
-//   return {
-//     data: students,
-//     ...paginationData,
-//   };
-// };
