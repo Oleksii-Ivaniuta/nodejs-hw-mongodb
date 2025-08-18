@@ -7,6 +7,7 @@ import { ENV_VARS } from './constants/envVars.js';
 import router from './routers/index.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import cookieParser from 'cookie-parser';
 
 export const startServer = () => {
   dotenv.config();
@@ -22,6 +23,8 @@ export const startServer = () => {
     }),
     cors(),
   );
+
+  app.use(cookieParser());
 
   app.use(express.json());
 
