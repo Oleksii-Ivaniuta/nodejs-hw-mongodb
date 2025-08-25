@@ -118,3 +118,36 @@ export const requestResetToken = async (email) => {
     });
   }
 };
+
+export const resetPassword = async (payload) => {
+  let entries;
+
+  try {
+    entries = jwt.verify(payload.token, getEnvVar(ENV_VARS.JWT_SECRET));
+  } catch (err) {
+    throw createHttpError({
+      status: 401,
+      message: 'Token is expired or invalid.',
+      error: err,
+    });
+  }
+  const user = await UsersCollection.findOne({
+    email: entries.email,
+    _id: entries.sub,
+  });
+  if (!user) {
+    throw createHttpError(404, 'User not found');
+  }
+
+  const encryptedPassword = await bcrypt.hash(payload.password, 10);
+
+  try {
+    await UsersCollection.updateOne(
+      { _id: user._id },
+      { password: encryptedPassword },
+    );
+    await SessionsCollection.deleteOne({ userId: user._id });
+  } catch (err) {
+    throw createHttpError(500, err.message);
+  }
+};
