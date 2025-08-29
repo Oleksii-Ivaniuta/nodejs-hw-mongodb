@@ -1,0 +1,56 @@
+tags:
+  - Contacts
+summary: Get list of contacts
+operationId: getContacts
+description: 'Get list of contacts for the authenticated user with pagination and sorting'
+security:
+  - bearerAuth: []
+parameters:
+  - in: query
+    name: page
+    schema:
+      type: integer
+      minimum: 1
+      default: 1
+    example: 1
+  - in: query
+    name: perPage
+    schema:
+      type: integer
+      minimum: 1
+      default: 10
+    example: 10
+  - in: query
+    name: sortBy
+    schema:
+      type: string
+      enum: ['_id', 'name', 'email']
+      default: 'name'
+    description: 'Sorting field. Default - name'
+    example: 'name'
+  - in: query
+    name: sortOrder
+    schema:
+      type: string
+      enum: ['asc', 'desc']
+      default: 'asc'
+    description: 'Sorting order. Default - asc'
+    example: 'asc'
+  - in: query
+    name: contactType
+    schema:
+      type: string
+      enum: ['home', 'work', 'personal']
+    description: "Filter by contact's type"
+    example: 'work'
+  - in: query
+    name: isFavourite
+    schema:
+      type: boolean
+    description: 'Filter by favourite flag'
+    example: true
+responses:
+  '200':
+    $ref: '../../components/responses/200.yaml'
+  '401':
+    $ref: '../../components/responses/401.yaml'
