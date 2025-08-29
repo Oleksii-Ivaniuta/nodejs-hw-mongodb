@@ -41,20 +41,10 @@ responses:
           type: string
         examples:
           clearSession:
-            value: 'sessionId=; HttpOnly; Secure; Path=/; SameSite=Strict; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
+            value: 'sessionId=; HttpOnly; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
           clearRefresh:
-            value: 'refreshToken=; HttpOnly; Secure; Path=/; SameSite=Strict; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
+            value: 'refreshToken=; HttpOnly; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
   '401':
-    description: Unauthorized
-    content:
-      application/json:
-        schema:
-          type: object
-          required: [status, message]
-          properties:
-            status:
-              type: integer
-              example: 401
-            message:
-              type: string
-              example: 'UnauthorizedError'
+    $ref: '../../../components/responses/401.yaml'
+  '500':
+    $ref: '../../../components/responses/500.yaml'

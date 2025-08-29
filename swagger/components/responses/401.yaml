@@ -21,4 +21,12 @@ content:
           properties:
             message:
               type: string
-              example: 'Access token expired'
+              example:
+                [
+                  'Access token expired',
+                  'User not found',
+                  'Unauthorized',
+                  'Session not found',
+                  'Session token expired',
+                  'Token is expired or invalid',
+                ]

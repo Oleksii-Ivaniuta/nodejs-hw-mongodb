@@ -21,4 +21,4 @@ content:
           properties:
             message:
               type: string
-              example: 'Unexpected server error'
+              example: 'Something went wrong'

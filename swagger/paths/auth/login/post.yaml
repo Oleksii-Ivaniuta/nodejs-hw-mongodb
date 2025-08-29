@@ -25,24 +25,23 @@ responses:
     headers:
       Set-Cookie:
         description: >
-          Server sets HTTP-only cookies for session and refresh token.
-          Two cookies are sent (shown as examples):
+          Server sets two HTTP-only cookies with 30-day expiration:
           - sessionId
           - refreshToken
         schema:
           type: string
         examples:
           sessionId:
-            value: 'sessionId=j%3A%2268b1d6531cc0bc6edf42f2b8%22; HttpOnly; Secure; Path=/; SameSite=Strict'
+            value: 'sessionId=68b1d6531cc0bc6edf42f2b8; HttpOnly; Expires=Fri, 28 Sep 2025 12:00:00 GMT; Path=/'
           refreshToken:
-            value: 'refreshToken=cROTUt340G6OUx1KsRX%2B3xm6px2XyjhqiPsxwb7J; HttpOnly; Secure; Path=/auth; SameSite=Strict'
+            value: 'refreshToken=cROTUt340G6OUx1KsRX3xm6px2XyjhqiPsxwb7J; HttpOnly; Expires=Fri, 28 Sep 2025 12:00:00 GMT; Path=/'
     content:
       application/json:
         schema:
           type: object
-          required: [status, message, data]
+          required: [stratus, message, data]
           properties:
-            status:
+            stratus:
               type: integer
               example: 200
             message:
@@ -57,3 +56,5 @@ responses:
                   example: '5+daMSC/e7+1M4W03fVJ98I/+hr4PBP3ngN7MeHa'
   '401':
     $ref: '../../../components/responses/401.yaml'
+  '500':
+    $ref: '../../../components/responses/500.yaml'

@@ -1,3 +1,4 @@
+# done
 tags:
   - Contacts
 summary: Create contact
@@ -44,6 +45,26 @@ requestBody:
             format: binary
 responses:
   '201':
-    $ref: '../../components/responses/201.yaml'
+    description: 'Created new contact'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Succesfully created contact!
+            data:
+              type: object
+              $ref: '../../components/schemas/contact.yaml'
   '401':
     $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: ../../components/responses/500.yaml
