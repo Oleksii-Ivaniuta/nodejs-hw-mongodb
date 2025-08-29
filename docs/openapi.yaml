@@ -8,11 +8,9 @@ info:
   description: Manage your contacts easy and fast
 tags:
   - name: Contacts
-    description: operations with contacts
-  - name: ContactById
-    description: operations with contact by id
+    description: Operations with contacts
   - name: Auth
-    description: Auth operations.
+    description: Authorization operations.
 servers:
   - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-voqb.onrender.com

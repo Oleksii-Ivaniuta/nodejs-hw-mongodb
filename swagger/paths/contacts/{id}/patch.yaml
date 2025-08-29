@@ -1,6 +1,6 @@
 # done
 tags:
-  - ContactById
+  - Contacts
 summary: Update contact
 operationId: updateContact
 description: 'Partially update a contact by id'

@@ -20,22 +20,18 @@
   "tags": [
     {
       "name": "Contacts",
-      "description": "operations with contacts"
-    },
-    {
-      "name": "ContactById",
-      "description": "operations with contact by id"
+      "description": "Operations with contacts"
     },
     {
       "name": "Auth",
-      "description": "Auth operations."
+      "description": "Authorization operations."
     }
   ],
   "paths": {
     "/contacts/{id}": {
       "get": {
         "tags": [
-          "ContactById"
+          "Contacts"
         ],
         "summary": "Get contact by id",
         "operationId": "getContact",
@@ -99,7 +95,7 @@
       },
       "delete": {
         "tags": [
-          "ContactById"
+          "Contacts"
         ],
         "summary": "Delete contact by id",
         "operationId": "deleteContact",
@@ -137,7 +133,7 @@
       },
       "patch": {
         "tags": [
-          "ContactById"
+          "Contacts"
         ],
         "summary": "Update contact",
         "operationId": "updateContact",
