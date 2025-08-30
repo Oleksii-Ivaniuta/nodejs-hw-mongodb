@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: 'Reset password'
 operationId: 'resetPassword'
+security: []
 description: 'Reset user password using the JWT token received in email. Old session will be invalidated and password updated.'
 requestBody:
   required: true

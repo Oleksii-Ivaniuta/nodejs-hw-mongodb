@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Refresh session
 operationId: refreshTokens
+security: []
 description: >
   Refresh user session by issuing a new access token and updating cookies
   (`sessionId` and `refreshToken`). Requires valid `refreshToken` and `sessionId` cookies.

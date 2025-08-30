@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Register user
 operationId: registerUser
+security: []
 description: 'Register a new user with name, email and password'
 requestBody:
   required: true

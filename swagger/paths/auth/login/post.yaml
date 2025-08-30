@@ -3,6 +3,7 @@ tags:
 summary: Login user
 operationId: loginUser
 description: 'Authenticate user with email and password. Returns accessToken and sets refresh/session cookies.'
+security: []
 requestBody:
   required: true
   content:

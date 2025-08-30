@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Request password reset
 operationId: requestResetPassword
+security: []
 description: >
   Request password reset by email.  
   If the user exists, a reset link with JWT token will be sent to the provided email.  

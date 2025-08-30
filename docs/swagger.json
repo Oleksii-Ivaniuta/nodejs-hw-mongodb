@@ -525,6 +525,7 @@
         ],
         "summary": "Register user",
         "operationId": "registerUser",
+        "security": [],
         "description": "Register a new user with name, email and password",
         "requestBody": {
           "required": true,
@@ -658,6 +659,7 @@
         "summary": "Login user",
         "operationId": "loginUser",
         "description": "Authenticate user with email and password. Returns accessToken and sets refresh/session cookies.",
+        "security": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -828,6 +830,7 @@
         ],
         "summary": "Refresh session",
         "operationId": "refreshTokens",
+        "security": [],
         "description": "Refresh user session by issuing a new access token and updating cookies (`sessionId` and `refreshToken`). Requires valid `refreshToken` and `sessionId` cookies.\n",
         "parameters": [
           {
@@ -921,6 +924,7 @@
         ],
         "summary": "Request password reset",
         "operationId": "requestResetPassword",
+        "security": [],
         "description": "Request password reset by email.   If the user exists, a reset link with JWT token will be sent to the provided email.   The link contains a JWT as a request parameter for further password reset.\n",
         "requestBody": {
           "required": true,
@@ -989,6 +993,7 @@
         ],
         "summary": "Reset password",
         "operationId": "resetPassword",
+        "security": [],
         "description": "Reset user password using the JWT token received in email. Old session will be invalidated and password updated.",
         "requestBody": {
           "required": true,
