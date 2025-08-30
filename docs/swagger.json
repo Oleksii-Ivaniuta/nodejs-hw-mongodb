@@ -1128,28 +1128,7 @@
     },
     "responses": {
       "204": {
-        "description": "Success, no content",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "required": [
-                "status",
-                "message"
-              ],
-              "properties": {
-                "status": {
-                  "type": "integer",
-                  "example": 204
-                },
-                "message": {
-                  "type": "string",
-                  "example": "SuccessNoContent"
-                }
-              }
-            }
-          }
-        }
+        "description": "Success, no content"
       },
       "401": {
         "description": "Unauthorized error",
